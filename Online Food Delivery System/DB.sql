@@ -13,7 +13,7 @@ CREATE TABLE customer(
 
 -- Restaurant Table
 CREATE TABLE restaurant(
-    restaurantId INT PRIMARY KEY,
+    restaurantId INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     address VARCHAR(255) NOT NULL,
     cuisineType VARCHAR(55),
@@ -22,7 +22,7 @@ CREATE TABLE restaurant(
 
 -- MenuItem Table
 CREATE TABLE menuItem(
-    itemId INT PRIMARY KEY,
+    itemId INT PRIMARY KEY AUTO_INCREMENT,
     restaurantId INT,
     name VARCHAR(100) NOT NULL,
     price DOUBLE NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE menuItem(
 
 -- Order Table
 CREATE TABLE `order`(
-    orderId INT PRIMARY KEY,
+    orderId INT PRIMARY KEY AUTO_INCREMENT,
     customerId INT,
     restaurantId INT,
     orderStatus VARCHAR(35),

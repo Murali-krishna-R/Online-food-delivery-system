@@ -56,7 +56,7 @@ public class MainModule {
             System.out.print("Enter customer password: ");
             String password = scanner.nextLine();
 
-            Customer customer = new Customer(name, email, phoneNumber, password);
+            Customer customer = new Customer(0,name, email, phoneNumber, password);
             try{
                 boolean success = customerService.createCustomer(customer);
                 System.out.println("Customer registered successfully!");
@@ -197,11 +197,13 @@ public class MainModule {
             System.out.print("Enter amount to pay: ");
             double amountPaid = scanner.nextDouble();
 
-            List<Order> allOrders = orderService.getOrdersByCustomer(0);
-            Order order = allOrders.stream()
-                .filter(o -> o.getOrderId() == orderId)
-                .findFirst()
-                .orElse(null);
+            // List<Order> allOrders = orderService.getOrdersByCustomer(0);
+            // Order order = allOrders.stream()
+            //     .filter(o -> o.getOrderId() == orderId)
+            //     .findFirst()
+            //     .orElse(null);
+
+            Order order = orderService.getOrderById(orderId);
 
             
             if(order == null){

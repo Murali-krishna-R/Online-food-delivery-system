@@ -27,12 +27,12 @@ public class MenuServiceImpl implements MenuService {
                 throw new RestaurantNotFoundException("Restaurant with ID " + menuItem.getRestaurantId() + " not found");
             }
 
-            insertStmt.setInt(1, menuItem.getItemId());
-            insertStmt.setInt(2, menuItem.getRestaurantId());
-            insertStmt.setString(3, menuItem.getName());
-            insertStmt.setDouble(4, menuItem.getPrice());
-            insertStmt.setString(5, menuItem.getDescription());
-            insertStmt.setInt(6, menuItem.getAvailableQuantity());
+            //insertStmt.setInt(1, menuItem.getItemId());
+            insertStmt.setInt(1, menuItem.getRestaurantId());
+            insertStmt.setString(2, menuItem.getName());
+            insertStmt.setDouble(3, menuItem.getPrice());
+            insertStmt.setString(4, menuItem.getDescription());
+            insertStmt.setInt(5, menuItem.getAvailableQuantity());
 
             return insertStmt.executeUpdate() > 0;
         } catch(SQLException e){

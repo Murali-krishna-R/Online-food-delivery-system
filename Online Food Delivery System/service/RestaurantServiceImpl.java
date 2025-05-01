@@ -17,11 +17,11 @@ public class RestaurantServiceImpl implements RestaurantService{
         String insertQuery = "INSERT INTO restaurant (name, address, cuisineType, contactNumber) VALUES (?, ?, ?, ?)";
         try(Connection conn = DBConnectionUtil.getConnection();
             PreparedStatement stmt = conn.prepareStatement(insertQuery)) {
-                stmt.setInt(1, restaurant.getRestaurantId());
-                stmt.setString(2, restaurant.getName());
-                stmt.setString(3, restaurant.getAddress());
-                stmt.setString(4, restaurant.getCuisineType());
-                stmt.setString(5, restaurant.getContactNumber());
+                //stmt.setInt(1, restaurant.getRestaurantId());
+                stmt.setString(1, restaurant.getName());
+                stmt.setString(2, restaurant.getAddress());
+                stmt.setString(3, restaurant.getCuisineType());
+                stmt.setString(4, restaurant.getContactNumber());
 
                 return stmt.executeUpdate() > 0;
         }catch(SQLException e){

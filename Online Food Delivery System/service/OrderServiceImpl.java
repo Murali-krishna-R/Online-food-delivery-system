@@ -70,4 +70,29 @@ public class OrderServiceImpl implements OrderService{
         }
         return orders;
     }
+
+    @Override
+    public Order getOrderById(int orderId){
+        String sql = "SELECT * FROM `order` WHERE orderId = ?";
+
+        try(Connection conn = DBConnectionUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, orderId);
+                ResultSet rs = stmt.executeQuery();
+                while(rs.next()){
+                    return new Order(
+                        rs.getInt("orderId"),
+                        rs.getInt("customerId"),
+                        rs.getInt("restaurantId"),
+                        rs.getString("orderStatus"),
+                        rs.getDouble("totalPrice"),
+                        rs.getString("deliveryAddress")
+                    );
+                    // orders.add(order);
+                }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
