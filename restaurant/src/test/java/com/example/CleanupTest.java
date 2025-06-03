@@ -31,6 +31,3 @@ public class CleanupTest {
         System.out.println("CleanupTest: Cleanup executed before AppTest.");
     }
 }
- {
-    
-}
